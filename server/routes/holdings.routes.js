@@ -5,8 +5,11 @@ const router = express.Router();
 // Get user holdings by id
 router.get('/', holdingsController.getUserHoldingsById);
 
-// Add new holding
-router.post('/', holdingsController.addHoldingByUserId);
+// Modify new holding (post)
+router.post('/', holdingsController.modifyHoldingById);
+
+// Update holdings
+router.put('/', holdingsController.updateCryptoAmount);
 
 // Get all user holdings
 router.get('/admin', holdingsController.getAllUserHoldings);

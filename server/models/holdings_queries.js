@@ -1,3 +1,5 @@
+const { modifyHoldingById } = require("./holdings.model");
+
 const holdingsQueries = {
     getUserHoldingsById: `
     SELECT * FROM holdings
@@ -12,6 +14,27 @@ const holdingsQueries = {
     getAllUserHoldings: `
     SELECT * FROM holdings;
     `,
+    userExists: `
+    SELECT id_user
+    FROM
+        users
+    WHERE
+        id_user = $1
+    `,
+    hasThatCrypto: `
+    SELECT id_crypto
+    FROM holdings
+    WHERE id_crypto = $1
+    `,
+    addNewCrypto: `
+    INSERT INTO holdings(id_crypto, crypto_amount)
+    VALUES ($1, $2)
+    `,
+    updateCryptoAmount: `
+    UPDATE holdings
+    SET crypto_amount = $3
+    WHERE id_crypto = $2 AND id_user=$1
+    `
 };
 
 module.exports = holdingsQueries;
