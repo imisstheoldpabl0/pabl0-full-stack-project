@@ -15,6 +15,7 @@ const createUser = async (user) => {
       login_status,
     ]);
     result = data.rowCount;
+    console.log(result);
   } catch (err) {
     console.log(err);
     throw err;
@@ -29,7 +30,7 @@ const getUsers = async () => {
   try {
       client = await pool.connect();
       const data = await client.query(queries.getUsers)
-      result = data.rows
+      result = data.rows;
   } catch (err) {
       console.log(err);
       throw err;
