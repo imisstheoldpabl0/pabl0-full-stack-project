@@ -21,6 +21,27 @@ const getUserHoldingsById = async (holding) => {
     return result
 };
 
+const addHoldingByUserId = async (newHolding) => {
+    const { id_user, id_crypto, crypto_amount } = newHolding;
+    let client, result;
+    try {
+        // Check if the user exists
+        const client = await pool.connect();
+        const userResult = await client.query('SELECT id_user FROM users WHERE id_user = $1', [id_user]);
+
+        // If the user does not exist, throw an error
+        if (userResult.rows.length === 0) {
+            throw new Error(`User with id ${id_user} does not exist`);
+        }
+
+        // If the user exists, insert the new holding without id_user
+        await client.query('INSERT INTO holdings (id_crypto, crypto_amount) VALUES ($1, $2)', [id_crypto, crypto_amount]);
+
+    } catch (error) {
+        console.log(error);
+    }
+};
+
 const getAllUserHoldings = async () => {
     let client, result;
     try {
@@ -40,6 +61,7 @@ const getAllUserHoldings = async () => {
 const holdings = {
     getUserHoldingsById,
     getAllUserHoldings,
+    addHoldingByUserId,
 };
 
 module.exports = holdings;
