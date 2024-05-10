@@ -1,0 +1,18 @@
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+
+    ul {
+        padding-inline-start: 0px;
+        background-color: transparent;
+    }
+
+    ul > li {
+        list-style-type: none;
+        display: inline-flex;
+        padding: 8px 16px;
+        background-color: transparent;
+    }
+}

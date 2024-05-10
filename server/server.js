@@ -1,3 +1,4 @@
+process.on('warning', e => console.warn(e.stack));
 // Requirements: express, pg
 const express = require("express");
 const cors = require("cors");
