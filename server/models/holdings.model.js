@@ -109,11 +109,27 @@ const getAllUserHoldings = async () => {
     return result
 };
 
+const getFirstUserHoldings = async () => {
+    let client, result;
+    try {
+        client = await pool.connect();
+        console.log(`Executing query: ${queries.getFirstUserHoldings}`);
+        const data = await client.query(queries.getFirstUserHoldings)
+        result = data.rows;
+    } catch (err) {
+        console.log(err);
+        throw err;
+    } finally {
+        client.release();
+    }
+    return result
+};
 const holdingsModel = {
     getUserHoldingsById,
-    getAllUserHoldings,
     modifyHoldingById,
     updateCryptoAmount,
+    getAllUserHoldings,
+    getFirstUserHoldings,
 };
 
 module.exports = holdingsModel;

@@ -1,8 +1,15 @@
+const { get } = require("http");
+const { getFirstUser } = require("./user_queries");
+
 const holdingsQueries = {
     getUserHoldingsById: `
     SELECT * FROM holdings
     WHERE
         id_user=$1;
+    `,
+    getFirstUserHoldings: `
+    SELECT * FROM holdings 
+    ORDER BY id_user ASC LIMIT 1
     `,
     addHoldingByUserId: `
     INSERT INTO holdings(id_user, id_crypto, crypto_amount)

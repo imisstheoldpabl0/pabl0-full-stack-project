@@ -14,4 +14,7 @@ router.put('/', holdingsController.updateCryptoAmount);
 // Get all user holdings
 router.get('/admin', holdingsController.getAllUserHoldings);
 
+//Get first user holdings
+router.get('/admin/first', holdingsController.getFirstUserHoldings);
+
 module.exports = router;

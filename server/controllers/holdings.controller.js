@@ -1,4 +1,5 @@
 const holdingsModel = require('../models/holdings.model');
+const { getFirstUser } = require('../models/user_queries');
 
 //Get user holdings by id
 const getUserHoldingsById = async (req, res) => {
@@ -51,10 +52,17 @@ const getAllUserHoldings = async (req, res) => {
     });
 }
 
+const getFirstUserHoldings = async (req, res) => {
+    const getFirstHoldings = await holdingsModel.getFirstUserHoldings();
+    res.status(200).json({
+        data: getFirstHoldings
+    });
+}
 
 module.exports = {
     getUserHoldingsById,
     getAllUserHoldings,
     modifyHoldingById,
-    updateCryptoAmount
+    updateCryptoAmount,
+    getFirstUserHoldings,
 };  
