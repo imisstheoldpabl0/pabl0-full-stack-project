@@ -25,7 +25,7 @@ const Home = () => {
           </ul>
         </div>
       </article>
-      <img src="../../../../src/assets/cube_only2.png" alt="cube" srcset="cube" />
+      <img src="../cube_only2.png" alt="cube" srcset="cube" />
     </section>
   );
 };

@@ -6,6 +6,10 @@ const userQueries = {
     getUsers: `
     SELECT * FROM users;
     `,
+    getFirstUser:`
+    SELECT * FROM users 
+    ORDER BY id_user ASC LIMIT 1
+    `,
 };
 
 module.exports = userQueries;
