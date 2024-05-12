@@ -72,8 +72,9 @@ const updateCryptoAmount = async (updateHolding) => {
     }
 }
 
-// old one
-/* const addHoldingByUserId = async (newHolding) => {
+// old one // not working (only for commit)
+)
+const addHoldingByUserId = async (newHolding) => {
     const { id_user, id_crypto, crypto_amount } = newHolding;
     try {
         // Check if the user exists
@@ -91,7 +92,7 @@ const updateCryptoAmount = async (updateHolding) => {
     } catch (error) {
         console.log(error);
     }
-}; */
+};
 
 const getAllUserHoldings = async () => {
     let client, result;
