@@ -41,17 +41,17 @@
 /* FONTS */
 @font-face {
   font-family: 'SFProBold';
-  src: url('../public/fonts/SFPRODISPLAYBOLD.OTF');
+  src: url('./fonts/SFPRODISPLAYBOLD.OTF');
 }
 
 @font-face {
   font-family: 'SFProMedium';
-  src: url('../public/fonts/SFPRODISPLAYMEDIUM.OTF');
+  src: url('./fonts/SFPRODISPLAYMEDIUM.OTF');
 }
 
 @font-face {
   font-family: 'SFProRegular';
-  src: url('../public/fonts/SFPRODISPLAYREGULAR.OTF');
+  src: url('./fonts/SFPRODISPLAYREGULAR.OTF');
 }
 
 * {
