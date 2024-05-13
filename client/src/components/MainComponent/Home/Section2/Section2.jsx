@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import "./Section2.css";
 
-const Section2 = ({ setCrypto, setFiat, setTimeFrame, setSinceInterval }) => {
+const Section2 = () => {
 
   const handleClick = (event) => {
     event.preventDefault();
