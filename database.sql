@@ -55,12 +55,11 @@ CREATE TABLE holdings (
     id_holding SERIAL PRIMARY KEY,
     id_user INTEGER,
     id_crypto INTEGER,
+    crypto_name VARCHAR,
     crypto_amount FLOAT,
-    id_fiat INTEGER,
-    fiat_amount FLOAT,
     FOREIGN KEY (id_user) REFERENCES users(id_user),
     FOREIGN KEY (id_crypto) REFERENCES crypto(id_crypto),
-    FOREIGN KEY (id_fiat) REFERENCES fiats(id_fiat)
+    FOREIGN KEY (crypto_name) REFERENCES crypto(crypto_name)
 );
 
 /* ---------------------------------------------------------------------- */
@@ -108,11 +107,11 @@ WHERE crypto_name = 'Ethereum';
 
 /* ---------------------------------------------------------------------- */
 -- Insert data into the 'holdings' table:
-INSERT INTO holdings (id_user, id_crypto, crypto_amount, id_fiat, fiat_amount)
+INSERT INTO holdings (id_user, id_crypto, crypto_name, crypto_amount)
 VALUES
-    (1, 1, 0.5, 1, 5000),
-    (1, 2, 2.3, 2, 2300),
-    (2, 3, 1.8, 1, 1800);
+    (1, 1, 'Bitcoin', 0.5),
+    (1, 2, 'Ethereum', 12.2),
+    (1, 3, 'Ripple', 542.44);
 
 /* ---------------------------------------------------------------------- */
 -- Insert data into the 'favorites' table:

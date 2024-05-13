@@ -3,12 +3,9 @@ import ReactApexChart from "react-apexcharts";
 
 const Chart = ({ crypto, amount }) => {
 
-  const addAmount = () => {
-
-  }
 
   const [state, setState] = useState({
-    series: [50, 50],
+    series: [crypto, amount],
     options: {
       chart: {
         type: 'donut',
