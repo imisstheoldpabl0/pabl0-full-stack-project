@@ -14,8 +14,9 @@ const Chart = ({ chart }) => {
         const url = `https://api.kraken.com/0/public/OHLC?pair=XETHZUSD&interval=1440&since=1704067200`
         console.log(url);
         let res = await axios.get(url); // Fetches the provided URL with parameters from the user
-        let data = res.data; // Stores the response data in a variable
-        setChart(data.result); // Return only the result data
+        let data = res.data.result; // Stores the response data in a variable
+        console.log(data);
+        setChart(data); // Return only the result data
 
       } catch (e) {
         setChart([]);
@@ -28,8 +29,8 @@ const Chart = ({ chart }) => {
   return (
     <section>
       <h1>I am the chart</h1>
-      {charts.length < 0 ? <Candlestick
-      info={chart}
+      {charts.length > 0 ? <Candlestick
+      info={charts}
       /> : <p>No data</p>}
     </section>
   );
