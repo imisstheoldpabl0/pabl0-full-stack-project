@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import ReactApexChart from "react-apexcharts";
 
 const Candlestick = ({ chart }) => {
@@ -18,47 +18,49 @@ const Candlestick = ({ chart }) => {
   });
 
   const [state, setState] = useState({
-    chart: {
-      type: 'candlestick',
-      width: newWidth,
-      height: newHeight,
-      events: {
-        mounted: (chart) => {
-          chart.windowResizeHandler();
-        }
-      }
-    },
-    dataLabels: {
-      enabled: false
-    },
     series: [{
       data: candles // Use the converted candlestick data
     }],
-    title: {
-      text: `This is a chart`,
-      align: 'left'
-    },
-    noData: {
-      text: 'Fetching data...',
-      style: {
-        fontSize: '14px',
-        fontFamily: 'SFProMedium'
-      }
-    },
-    plotOptions: {
-      candlestick: {
-        colors: {
-          upward: '#BCA695ff', // OG: #3C90EB yellow: fCCE36
-          downward: '#CA7A55' // OG: #DF7D46
+    options: {
+      chart: {
+        type: 'candlestick',
+        width: newWidth,
+        height: newHeight,
+        events: {
+          mounted: (chart) => {
+            chart.windowResizeHandler();
+          }
         }
-      }
-    },
-    xaxis: {
-      type: 'datetime'
-    },
-    yaxis: {
-      tooltip: {
-        enabled: true
+      },
+      dataLabels: {
+        enabled: false
+      },
+      title: {
+        text: `This is a chart`,
+        align: 'left'
+      },
+      noData: {
+        text: 'Fetching data...',
+        style: {
+          fontSize: '14px',
+          fontFamily: 'SFProMedium'
+        }
+      },
+      plotOptions: {
+        candlestick: {
+          colors: {
+            upward: '#BCA695ff', // OG: #3C90EB yellow: fCCE36
+            downward: '#CA7A55' // OG: #DF7D46
+          }
+        }
+      },
+      xaxis: {
+        type: 'datetime'
+      },
+      yaxis: {
+        tooltip: {
+          enabled: true
+        }
       }
     }
   }
