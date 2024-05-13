@@ -1,8 +1,7 @@
 nav {
-    height: 20vh;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-end;
     background-color: transparent;
 
     ul {
@@ -10,10 +9,35 @@ nav {
         background-color: transparent;
     }
 
-    ul > li {
+
+    /* LIST ITEMS */
+    ul>li {
         list-style-type: none;
         display: inline-flex;
         padding: 8px 16px;
         background-color: transparent;
+    }
+
+    /* LINKS + TEXT */
+    a {
+        color: var(--orange1);
+        /* text color */
+        text-decoration: none;
+        padding: 2px 8px;
+        border-radius: 3px;
+        background-color: transparent;
+
+    }
+
+    a:hover {
+        background-color: var(--orange1);
+        /* background color on hover*/
+        color: var(--not-white);
+        /* text color on hover*/
+        transform: scale(1.15);
+        transition: 0.55s;
+        cursor: pointer;
+        box-shadow: 0 0 12px 1px var(--orange1);
+        /* box shadow color on hover*/
     }
 }

@@ -1,68 +1,60 @@
 :root {
+  /* GREY SCALE */
+  --dark-grey: #121212;
+  --medium-grey: #444444;
+  --grey: #868686;
+  --light-grey: #dedede;
+  --white: #ffffff;
+
+  /* PALETTE 1 */
+  --dark-blue: #112D4E;
+  --blue: #3F72AF;
+  --light-blue: #DBE2EF;
+  --not-white: #F9F7F7;
+
+  /* PALETTE 2 */
+  --orange1: #CA7A55;
+  --yellow1: #FBD865;
+  --yellow2: #fCCE36;
+
+  /* PALETTE 3 */
+  --peach-yellow: #FEDF99ff;
+  --butterscotch: #E79D53ff;
+  --engineering-orange: #B4140Dff;
+  --black: #000000ff;
+
+  /* PALETTE 4 */
+  --raisin-black: #312027ff;
+  --rose-taupe: #816664ff;
+  --khaki: #BCA695ff;
+  --sunset: #EDD0A2ff;
+  --black: #000000ff;
+
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  color: var(--black);
+  background-color: var(--not-white);
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
+/* FONTS */
+@font-face {
+  font-family: 'SFProBold';
+  src: url('../public/fonts/SFPRODISPLAYBOLD.OTF');
 }
 
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+@font-face {
+  font-family: 'SFProMedium';
+  src: url('../public/fonts/SFPRODISPLAYMEDIUM.OTF');
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+@font-face {
+  font-family: 'SFProRegular';
+  src: url('../public/fonts/SFPRODISPLAYREGULAR.OTF');
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+* {
+  background-color: var(--not-white);
+  font-family: SFProMedium;
 }
