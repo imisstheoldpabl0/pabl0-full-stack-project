@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Chart from "./Chart/Chart";
 
-const Dashboard = ({ id_crypto, crypto_amount }) => {
+const Dashboard = ({ chart }) => {
 
   const [charts, setChart] = useState([]);
 
@@ -17,22 +17,11 @@ const Dashboard = ({ id_crypto, crypto_amount }) => {
       }
     }
     fetchData();
-  }, [id_crypto, crypto_amount]);
-
-  const paintCharts = () => {
-    return charts.length !== 0 ?
-      charts.map((chart, index) => {
-        return <Chart
-          key={index}
-          crypto={chart.id_crypto}
-          amount={chart.crypto_amount}
-        />
-      }) : <p>No data</p>
-  }
+  }, [chart]);
 
   return (
     <div>
-      {paintCharts()}
+      {charts.length > 0 ? <Chart charts={charts} /> : <p>No data</p>}
     </div>
   );
 }

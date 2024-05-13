@@ -1,15 +1,21 @@
 import React, { useState } from "react";
 import ReactApexChart from "react-apexcharts";
 
-const Chart = ({ crypto, amount }) => {
+const Chart = ({ charts }) => {
 
+  const amounts = charts.map(chart => chart.crypto_amount);
+  console.log(`These are the amounts: ${amounts}`);
+
+  const names = charts.map(chart => chart.crypto_name);
+  console.log(`These are the names: ${names}`);
 
   const [state, setState] = useState({
-    series: [crypto, amount],
+    series: amounts,
     options: {
       chart: {
         type: 'donut',
       },
+      labels: names,
       responsive: [{
         breakpoint: 500,
         options: {
@@ -33,12 +39,6 @@ const Chart = ({ crypto, amount }) => {
         options={state.options}
         series={state.series} type="donut" />
         </section>
-
-        <section>
-          
-        </section>
-      <p>{crypto}</p>
-      <p>{amount}</p>
     </div>
   );
 };
