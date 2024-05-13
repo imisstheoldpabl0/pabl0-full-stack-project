@@ -1,4 +1,4 @@
-const pool = require("../config/bd_pgsql.js"); // Conexion a la BD
+const pool = require("../config/db_pgsql.js"); // Conexion a la BD
 const queries = require("./holdings_queries.js"); // Queries SQL
 
 const getUserHoldingsById = async (getHolding) => {

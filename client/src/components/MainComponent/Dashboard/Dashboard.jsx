@@ -32,7 +32,6 @@ const Dashboard = ({ id_crypto, crypto_amount }) => {
 
   return (
     <div>
-      <h1>This is the dash</h1>
       {paintCharts()}
     </div>
   );

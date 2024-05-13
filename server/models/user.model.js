@@ -1,4 +1,4 @@
-const pool = require("../config/bd_pgsql.js"); // Conexion a la BD
+const pool = require("../config/db_pgsql.js"); // Conexion a la BD
 const queries = require("./user_queries.js"); // Queries SQL
 
 // Create a new user
