@@ -21,9 +21,11 @@ const Dashboard = ({ chart }) => {
 
   return (
     <div>
-      {charts.length > 0 ? <Chart charts={charts} /> : <p>No data</p>}
+      {charts.length > 0 ? <Chart
+        charts={charts}
+      /> : <p>No data</p>}
     </div>
   );
 }
 
-  export default Dashboard;
+export default Dashboard;

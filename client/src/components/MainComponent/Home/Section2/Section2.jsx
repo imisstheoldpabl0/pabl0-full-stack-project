@@ -1,28 +1,21 @@
-import React, { useEffect } from "react";
+import React, { useRef } from "react";
 import "./Section2.css";
-import Chart from "./Chart/Chart";
-import axios from "axios";
 
-const Section2 = () => {
+const Section2 = ({ setCrypto, setFiat, setTimeFrame, setSinceInterval }) => {
 
-/*   const [chart, setChart] = useState([]);
+  const handleClick = (event) => {
+    e.preventDefault();
 
-  useEffect(() => {
-    async function fetchData() {
-      try {
-        const url = `https://api.kraken.com/0/public/OHLC?pair=${cryptoCoin}${cryptoPair}&interval=${timeFrameInterval}&since=${sinceInterval}`
-        console.log(url);
-        let response = await fetch(url); // Fetches the provided URL with parameters from the user
-        let data = await response.data; // Stores the response data in a variable
-        setChart(data.result); // Return only the result data
+    const value = event.target.getAttribute('data-value');
 
-      } catch (error) {
-        console.error('Error fetching data:', error);
-        return null;
-      }
-    }
-    fetchData();
-  }, [chart]); */
+    if (value.startsWith("X")) {
+      setCrypto(value);
+    } else if (value.startsWith("Z")) {
+      setFiat(value);
+    } else {
+      setTimeFrame(value);
+  }
+};
 
   return (
     <section id="section2">
@@ -33,28 +26,28 @@ const Section2 = () => {
         <div className="dropdown">
           <button className="dropbtn" id="crypto_button">CRYPTOCURRENCY</button>
           <div className="dropdown-content">
-            <a href="#" data-value="XXBT">BTC</a>
-            <a href="#" data-value="XETH">ETH</a>
-            <a href="#" data-value="XXLM">XLM</a>
-            <a href="#" data-value="XXRP">XRP</a>
+            <a href="#" data-value="XXBT" onClick={(event) => handleClick(event)}>BTC</a>
+            <a href="#" data-value="XETH" onClick={(event) => handleClick(event)}>ETH</a>
+            <a href="#" data-value="XXLM" onClick={(event) => handleClick(event)}>XLM</a>
+            <a href="#" data-value="XXRP" onClick={(event) => handleClick(event)}>XRP</a>
           </div>
         </div>
 
         <div className="dropdown">
           <button className="dropbtn" id="fiat_button">FIAT</button>
           <div className="dropdown-content" id="dropdown-content">
-            <a href="#" data-value="ZUSD">USD</a>
-            <a href="#" data-value="ZEUR">EUR</a>
-            <a href="#" data-value="ZGBP">GBP</a>
+            <a href="#" data-value="ZUSD" onClick={(event) => handleClick(event)}>USD</a>
+            <a href="#" data-value="ZEUR" onClick={(event) => handleClick(event)}>EUR</a>
+            <a href="#" data-value="ZGBP" onClick={(event) => handleClick(event)}>GBP</a>
           </div>
         </div>
 
         <div className="dropdown">
           <button className="dropbtn" id="timeframe_button">TIME-FRAME</button>
           <div className="dropdown-content">
-            <a href="#" data-value="60">1H</a>
-            <a href="#" data-value="240">4H</a>
-            <a href="#" data-value="1440">24H</a>
+            <a href="#" data-value="60" onClick={(event) => handleClick(event)}>1H</a>
+            <a href="#" data-value="240" onClick={(event) => handleClick(event)}>4H</a>
+            <a href="#" data-value="1440" onClick={(event) => handleClick(event)}>24H</a>
           </div>
         </div>
 
@@ -70,12 +63,6 @@ const Section2 = () => {
         </div>
 
       </div>
-
-      <section>
-        <Chart />
-      </section>
-
-      <script src="./index.js"></script>
     </section>
   );
 };
