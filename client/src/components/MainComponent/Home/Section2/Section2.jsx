@@ -4,7 +4,7 @@ import "./Section2.css";
 const Section2 = ({ setCrypto, setFiat, setTimeFrame, setSinceInterval }) => {
 
   const handleClick = (event) => {
-    e.preventDefault();
+    event.preventDefault();
 
     const value = event.target.getAttribute('data-value');
 
