@@ -3,7 +3,7 @@ import Candlestick from "./Candlestick/Candlestick";
 import axios from "axios";
 // import css
 
-const Chart = ({ chart }) => {
+const Chart = ({ crypto, fiat, timeFrame, sinceInterval }) => {
   
   const [charts, setChart] = useState([]);
   
@@ -23,13 +23,13 @@ const Chart = ({ chart }) => {
       }
     }
     fetchData();
-  }, [chart]); // Updates when there is a change in: crypto, fiat, timeFrame, or sinceInterval
+  }, []);
 
 
   return (
     <section>
       <h1>I am the chart</h1>
-      {charts.length > 0 ? <Candlestick
+      {charts.length ? <Candlestick
       info={charts}
       /> : <p>No data</p>}
     </section>
