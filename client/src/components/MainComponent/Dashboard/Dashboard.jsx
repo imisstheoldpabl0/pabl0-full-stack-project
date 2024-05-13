@@ -10,8 +10,8 @@ const Dashboard = ({ id_crypto, crypto_amount }) => {
     async function fetchData() {
       try {
         let res = await axios.get('http://localhost:3000/holdings/admin/first');
-        let data = res.data[0];
-        setChart(charts.data);
+        let money = res.data;
+        setChart(money.data);
       } catch (e) {
         setChart([]);
       }
@@ -19,9 +19,21 @@ const Dashboard = ({ id_crypto, crypto_amount }) => {
     fetchData();
   }, [id_crypto, crypto_amount]);
 
+  const paintCharts = () => {
+    return charts.length !== 0 ?
+      charts.map((chart, index) => {
+        return <Chart
+          key={index}
+          crypto={chart.id_crypto}
+          amount={chart.crypto_amount}
+        />
+      }) : <p>No data</p>
+  }
+
   return (
     <div>
       <h1>This is the dash</h1>
+      {paintCharts()}
     </div>
   );
 }
