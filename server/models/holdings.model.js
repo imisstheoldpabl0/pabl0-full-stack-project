@@ -73,7 +73,6 @@ const updateCryptoAmount = async (updateHolding) => {
 }
 
 // old one // not working (only for commit)
-)
 const addHoldingByUserId = async (newHolding) => {
     const { id_user, id_crypto, crypto_amount } = newHolding;
     try {
@@ -115,7 +114,7 @@ const getFirstUserHoldings = async () => {
     try {
         client = await pool.connect();
         console.log(`Executing query: ${queries.getFirstUserHoldings}`);
-        const data = await client.query(queries.getFirstUserHoldings)
+        const data = await client.query(queries.getFirstUserHoldings);
         result = data.rows;
     } catch (err) {
         console.log(err);

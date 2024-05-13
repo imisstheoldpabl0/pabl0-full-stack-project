@@ -2,7 +2,7 @@ import React from "react";
 import { Routes, Route } from "react-router-dom";
 import Home from "../MainComponent/Home/Home";
 import Use from "../MainComponent/Use/Use"
-import Dashboard from "./Dashboard/Dashboard"
+import Dashboard from "../MainComponent/Dashboard/Dashboard"
 import Account from "../MainComponent/Account/Account"
 
 
