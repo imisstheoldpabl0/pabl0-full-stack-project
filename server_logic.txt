@@ -1,0 +1,45 @@
+// What happens when a user adds a new holding?
+// If the user didnt have that coin before, it adds (POST) a new holding to the holdings table.
+// If the user already had that coin, it updates (PUT) the amount of that coin in the holdings table.
+
+let id_user = "$1";
+let id_crypto = "$2";
+let crypto_amount = "$3";
+
+const userExists = () => {
+    client.query('SELECT id_user FROM users WHERE id_user = $1', [id_user]);
+}
+
+
+const hasThatCrypto = () => {
+    client.query('SELECT id_crypto FROM holdings WHERE id_crypto = $1', [id_crypto]);
+}
+
+
+const insertThisAmount = () => {
+    client.query('INSERT INTO holdings(id_crypto, crypto_amount) VALUES ($1, $2)', [id_crypto, crypto_amount]);
+}
+
+const updateThisCrypto = () => {
+    client.query('PUT ')
+}
+
+const addHoldings = () => {
+
+    // We check if the user exists in the database
+    // If the user does not exist in the database, throw an error
+    if (userExists.rows.length === 0) {
+        console.log("User not found");
+    }
+
+    // If the user does exist, check if they have any amount of the crypto they are trying to add
+    // If the user does not have that crypto, then insert into the database id_crypto and crypto_amount
+    if (hasThatCrypto.rows.length === 0) {
+        insertThisAmount();
+    }
+
+    if (hasThatCrypto.rows.length !== 0) {
+        updateThisCrypto();
+    }
+
+}

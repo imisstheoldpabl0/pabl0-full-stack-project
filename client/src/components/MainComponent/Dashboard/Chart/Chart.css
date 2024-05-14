@@ -1,0 +1,20 @@
+#dashboard-div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    #dashboard {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-top: 20px;
+        width: 100%;
+    
+        #pie-chart {
+            width: 500px;
+        }
+    }
+}
+
