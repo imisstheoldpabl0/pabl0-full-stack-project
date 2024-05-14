@@ -1,0 +1,41 @@
+#section-account {
+    display: flex;  
+    flex-direction: column;
+    justify-content: center;
+
+    #forms-container {
+        display: flex;
+        justify-content: space-around;
+        flex-direction: column;
+        margin-left: 15%;
+        margin-right: 15%;
+    
+        #form1 {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+    
+            input {
+                width: 148px;
+                height: 18px;
+                margin-top: 4px;
+                margin-bottom: 8px;
+            }
+        }
+    
+        #form2 {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+    
+            input {
+                width: 148px;
+                height: 18px;
+                margin-top: 4px;
+                margin-bottom: 8px;
+            }
+        }
+    }
+
+
+}

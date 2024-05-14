@@ -51,17 +51,6 @@ const Section2 = (props) => {
           </div>
         </div>
 
-        <div className="dropdown">
-          <button className="dropbtn" id="chartlength_button">CHART LENGTH</button>
-          <div className="dropdown-content">
-            <a href="#" data-value="604800">1 WEEK</a>
-            <a href="#" data-value="1209600">2 WEEKS</a>
-            <a href="#" data-value="2629743">1 MONTH</a>
-            <a href="#" data-value="31556926">1 YEAR</a>
-            <a href="#" data-value="63113852">2 YEARS</a>
-          </div>
-        </div>
-
       </div>
     </section>
   );

@@ -12,13 +12,9 @@
         margin-top: 20px;
         width: 100%;
     
-        #chart {
+        #pie-chart {
             width: 500px;
-            height: 500px;
         }
     }
-
-
-
 }
 
