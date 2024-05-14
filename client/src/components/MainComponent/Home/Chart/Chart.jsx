@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import Candlestick from "./Candlestick/Candlestick";
 import axios from "axios";
-// import css
+import "./Chart.css";
 
 const Chart = (props) => {
   
@@ -35,8 +35,7 @@ const Chart = (props) => {
 
 
   return (
-    <section>
-      <h1>I am the chart</h1>
+    <section id="chart-section">
       {charts["last"] !== undefined ? <Candlestick
       info={charts}
       /> : <p>No data</p>}
