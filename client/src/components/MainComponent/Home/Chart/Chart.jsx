@@ -3,7 +3,7 @@ import Candlestick from "./Candlestick/Candlestick";
 import axios from "axios";
 // import css
 
-const Chart = ({ crypto, fiat, timeFrame, sinceInterval }) => {
+const Chart = () => {
   
   const [charts, setChart] = useState([]);
   
@@ -23,7 +23,7 @@ const Chart = ({ crypto, fiat, timeFrame, sinceInterval }) => {
       }
     }
     fetchData();
-  }, []);
+  }, [charts]);
 
 
   return (
