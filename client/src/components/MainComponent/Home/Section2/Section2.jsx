@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import "./Section2.css";
 
-const Section2 = () => {
+const Section2 = (props) => {
 
   const handleClick = (event) => {
     event.preventDefault();
@@ -9,11 +9,11 @@ const Section2 = () => {
     const value = event.target.getAttribute('data-value');
 
     if (value.startsWith("X")) {
-      setCrypto(value);
+      props.setCrypto(value);
     } else if (value.startsWith("Z")) {
-      setFiat(value);
+      props.setFiat(value);
     } else {
-      setTimeFrame(value);
+      props.setTimeFrame(value);
   }
 };
 

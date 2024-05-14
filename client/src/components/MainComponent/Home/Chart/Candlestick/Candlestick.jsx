@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import ReactApexChart from "react-apexcharts";
 
 const Candlestick = ({ info }) => {
-
+console.log(info);
   /* RESIZE CHART BASE ON WINDOW SIZE */
   let newWidth = Math.round(window.innerWidth * 0.8);
   let newHeight = Math.round(window.innerHeight * 0.75);
@@ -17,61 +17,69 @@ const Candlestick = ({ info }) => {
     };
   });
 
-  const [state, setState] = useState({
-    series: [{
-      data: candles // Use the converted candlestick data
-    }],
-    options: {
-      chart: {
-        type: 'candlestick',
-        width: newWidth,
-        height: newHeight,
-        events: {
-          mounted: (chart) => {
-            chart.windowResizeHandler();
+  const [state, setState] = useState({});
+
+  useEffect(() => {
+    
+    setState({
+      series: [{
+        data: candles // Use the converted candlestick data
+      }],
+      options: {
+        chart: {
+          type: 'candlestick',
+          width: newWidth,
+          height: newHeight,
+          events: {
+            mounted: (chart) => {
+              chart.windowResizeHandler();
+            }
           }
-        }
-      },
-      dataLabels: {
-        enabled: false
-      },
-      title: {
-        text: `This is a chart`,
-        align: 'left'
-      },
-      noData: {
-        text: 'Fetching data...',
-        style: {
-          fontSize: '14px',
-          fontFamily: 'SFProMedium'
-        }
-      },
-      plotOptions: {
-        candlestick: {
-          colors: {
-            upward: '#BCA695ff', // OG: #3C90EB yellow: fCCE36
-            downward: '#CA7A55' // OG: #DF7D46
+        },
+        dataLabels: {
+          enabled: false
+        },
+        title: {
+          text: `This is a chart`,
+          align: 'left'
+        },
+        noData: {
+          text: 'Fetching data...',
+          style: {
+            fontSize: '14px',
+            fontFamily: 'SFProMedium'
           }
-        }
-      },
-      xaxis: {
-        type: 'datetime'
-      },
-      yaxis: {
-        tooltip: {
-          enabled: true
+        },
+        plotOptions: {
+          candlestick: {
+            colors: {
+              upward: '#BCA695ff', // OG: #3C90EB yellow: fCCE36
+              downward: '#CA7A55' // OG: #DF7D46
+            }
+          }
+        },
+        xaxis: {
+          type: 'datetime'
+        },
+        yaxis: {
+          tooltip: {
+            enabled: true
+          }
         }
       }
-    }
-  }
-  );
+    })
+
+  }, [info]);
 
   return (
     <div>
-      <ReactApexChart
+            {state["options"] !== undefined ?  
+            <ReactApexChart
         options={state.options}
         series={state.series}
-        type="candlestick" />
+        type="candlestick" /> : 
+        <p>No data</p>}
+     
     </div>
   );
 };

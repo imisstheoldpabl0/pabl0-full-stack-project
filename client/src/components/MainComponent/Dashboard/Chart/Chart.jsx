@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import ReactApexChart from "react-apexcharts";
+import "./Chart.css";
 
 const Chart = ({ charts }) => {
 
@@ -31,14 +32,20 @@ const Chart = ({ charts }) => {
   });
 
   return (
-    <div>
+    <div id="dashboard-div">
       <h1>Chart</h1>
 
-      <section>
-      <ReactApexChart
-        options={state.options}
-        series={state.series} type="donut" />
-        </section>
+      <section id="dashboard">
+        <div id="pie-chart">
+          <ReactApexChart
+            options={state.options}
+            series={state.series} type="donut" />
+        </div>
+        <div id="buttons">
+          <button >Add New Crypto</button>
+          <button >Modify Crypto</button>
+        </div>
+      </section>
     </div>
   );
 };
