@@ -1,20 +1,23 @@
-import React, {useRef} from "react";
+import React, { useRef, useEffect } from "react";
 import "./Section1.css";
 
 const Section1 = () => {
 
-  const imageScroll = () => {
-    window.onscroll = function() {
-      scrollRotate();
-  };
+  useEffect(() => {
+    const scrollRotate = () => {
+      let image = document.getElementById('cube');
+      if (image) {
+        image.style.transform = 'rotate(' + window.scrollY / 2 + 'deg)';
+      }
+    };
 
-  const scrollRotate = () => {
-    let image = document.getElementById('cube');
-    image.style.transform = 'rotate(' + window.scrollY/2 + 'deg)';
-  };
-  imageScroll();
+    window.addEventListener('scroll', scrollRotate);
 
-}
+    return () => {
+      window.removeEventListener('scroll', scrollRotate);
+    };
+  }, []);
+
   return (
     <section id="section1">
       <article id="article1">
@@ -39,7 +42,7 @@ const Section1 = () => {
           </ul>
         </div>
       </article>
-      <img src="./images/cube_only2.png" alt="cube" id="cube" />
+      {<img src="./images/cube_only2.png" alt="cube" id="cube" />}
     </section>
   );
 };

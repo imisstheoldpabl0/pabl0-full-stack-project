@@ -9,7 +9,7 @@ const Home = () => {
   const [timeFrame, setTimeFrame] = useState('1440');
   const [sinceInterval, setSinceInterval] = useState('1704067200');
   return (
-    <section>
+    <section id="home">
       <Section1 />
       <Section2 setCrypto={setCrypto} setFiat={setFiat} setTimeFrame={setTimeFrame} setSinceInterval={setSinceInterval} />
       <Chart crypto={crypto} fiat={fiat} timeFrame={timeFrame} sinceInterval={sinceInterval}/>

@@ -72,7 +72,7 @@ console.log(info);
   }, [info]);
 
   return (
-    <div>
+    <div id="candlestick-chart">
             {state["options"] !== undefined ?  
             <ReactApexChart
         options={state.options}
