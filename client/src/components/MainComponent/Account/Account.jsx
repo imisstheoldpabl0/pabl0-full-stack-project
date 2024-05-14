@@ -3,10 +3,8 @@ import "./Account.css";
 
 const Account = () => {
   return (
-    <div>
+    <div id="account">
       <section id="section_account">
-        <h1>Login or Create an account</h1>
-
         <div id="forms-container">
           <div>
             <h3>Create an account</h3>
@@ -26,27 +24,21 @@ const Account = () => {
 
         <div id="forms-container">
           <div>
-            <h3>Create an account</h3>
+            <h3>Login to an existing account</h3>
             <form id="form2" action="#" method="POST">
               <div>
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" placeholder="Enter your username..."></input>
-                <label for="pass">Password:</label>
-                <input type="password" id="pass" name="pass" placeholder="Enter your password..."></input>
-                <input type="submit" value="Create account"></input>
+                <label for="email2">Email:</label>
+                <input type="email" id="email2" name="email2" placeholder="Introduce email..."></input>
+                <label for="pass3">Password:</label>
+                <input type="password" id="pass3" name="pass3" placeholder="Introduce password..."></input>
+                <input type="submit" value="Login"></input>
+                <div id="logout">
+                  <button id="salir">Logout</button>
+                </div>
               </div>
             </form>
           </div>
         </div>
-
-
-
-
-
-
-
-
-
 
       </section>
     </div>
