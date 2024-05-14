@@ -38,7 +38,7 @@ const modifyHoldingById = async (changeHolding) => {
         }
 
         // if the user is logged (users table) does exist AND has that coin, modify (PUT) to id_crypto and crypto_amount WHERE id_user=$1 (Modify the row where that crypto is with the correct amount)
-        if (userExists.rows.length !== 0 && hasThatCrypto.rows.length !== 0) {
+        if (userIsLogged.rows.length !== 0 && userExists.rows.length !== 0 && hasThatCrypto.rows.length !== 0) {
             updateCryptoAmount();
             console.log(result);
             return result;
@@ -71,27 +71,6 @@ const updateCryptoAmount = async (updateHolding) => {
         client.release();
     }
 }
-
-// old one // not working (only for commit)
-const addHoldingByUserId = async (newHolding) => {
-    const { id_user, id_crypto, crypto_amount } = newHolding;
-    try {
-        // Check if the user exists
-        const client = await pool.connect();
-        const userResult = await client.query('SELECT id_user FROM users WHERE id_user = $1', [id_user]);
-
-        // If the user does not exist, throw an error
-        if (userResult.rows.length === 0) {
-            throw new Error(`User with id ${id_user} does not exist`);
-        }
-
-        // If the user exists, insert the new holding without id_user
-        await client.query('INSERT INTO holdings (id_crypto, crypto_amount) VALUES ($1, $2)', [id_crypto, crypto_amount]);
-
-    } catch (error) {
-        console.log(error);
-    }
-};
 
 const getAllUserHoldings = async () => {
     let client, result;
