@@ -2,6 +2,18 @@ import React from "react";
 import "./Account.css";
 
 const Account = () => {
+
+  async function fetchData() {
+    try {
+      let res = await axios.post('http://localhost:3000/users');
+      let data = res.data;
+      setChart(data);
+    } catch (e) {
+      throw new Error(e);
+    }
+  }
+  fetchData();
+
   return (
     <div id="account">
       <section id="section_account">

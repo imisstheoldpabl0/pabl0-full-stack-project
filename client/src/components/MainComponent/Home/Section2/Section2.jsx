@@ -29,7 +29,6 @@ const Section2 = (props) => {
             <a href="#" data-value="XXBT" onClick={(event) => handleClick(event)}>BTC</a>
             <a href="#" data-value="XETH" onClick={(event) => handleClick(event)}>ETH</a>
             <a href="#" data-value="XXLM" onClick={(event) => handleClick(event)}>XLM</a>
-            <a href="#" data-value="XXRP" onClick={(event) => handleClick(event)}>XRP</a>
           </div>
         </div>
 

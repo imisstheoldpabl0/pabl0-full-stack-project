@@ -30,7 +30,7 @@ const modifyHoldingById = async (changeHolding) => {
         const hasThatCrypto = await client.query(queries.hasThatCrypto, [id_crypto]);
 
         // if the user is logged (users table) AND his id_user (holdings table) DOES NOT exist WITH that id_crypto (holdings table) -> create row (POST) to holdings with id_user, id_crypto, and crypto_amount
-        if (userIsLogged.rows.length !== 0 && userExists.rows.length === 0 && hasThatCrypto.rows.length === 0) {
+        if (userExists.rows.length === 0) {
             const data = await client.query(queries.addNewCrypto, [id_user, id_crypto, crypto_amount]);
             result = data.rowCount;
             console.log(result);

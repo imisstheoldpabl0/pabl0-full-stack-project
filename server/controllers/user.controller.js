@@ -1,4 +1,3 @@
-const { get } = require('http');
 const user = require('../models/user.model');
 
 // Create a new user
